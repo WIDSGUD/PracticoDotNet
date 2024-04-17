@@ -1,0 +1,20 @@
+﻿@model Pais
+
+<h1>Modificar Pais</h1>
+<form method="post">
+    <input asp-for="id" hidden />
+    <div>
+        <div>
+            <label>Nuevo nombre</label>
+            <input asp-for="nombre" type="text" class="form-control" />
+            <span asp-validation-for="nombre" class="text-danger"></span>
+        </div>
+        <button type="submit" class="btn btn-primary">Guardar cambios</button>
+    </div>
+</form>
+
+@section Scripts {
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+}

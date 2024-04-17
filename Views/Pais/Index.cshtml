@@ -1,0 +1,31 @@
+﻿@model List<Pais>
+
+<h1>Paises</h1>
+<div>
+    <a asp-controller="Pais" asp-action="CrearPais" class="btn btn-primary">Nuevo Pais +</a>
+</div>
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Editar</th>
+            <th>Borrar</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var obj in Model)
+        {
+            <tr>
+                <td>@obj.id</td>
+                <td>@obj.nombre</td>
+                <td>
+                    <div> <a asp-controller="Pais" asp-action="ModificarPais" asp-route-id="@obj.id" class="btn btn-primary">Editar</a></div>
+                </td>
+                <td>
+                    <div> <a asp-controller="Pais" asp-action="EliminarPais" asp-route-id="@obj.id" class="btn btn-danger">Borrar</a></div>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
