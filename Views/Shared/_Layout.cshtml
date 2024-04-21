@@ -26,6 +26,12 @@
                             <a class="nav-link text-dark" asp-area="" asp-controller="Pais" asp-action="Index">Lista Paises</a>
                         </li>
                         <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Deporte" asp-action="Index">Lista Deportes</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Confederacion" asp-action="Index">Lista Confederaciones</a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
                         </li>
                     </ul>
@@ -35,6 +41,7 @@
     </header>
     <div class="container">
         <main role="main" class="pb-3">
+            <partial name="_Notificaciones" />
             @RenderBody()
         </main>
     </div>

@@ -13,6 +13,7 @@ namespace PracticoDotNet.Controllers
         public IActionResult Index()
         {
             List<Pais> listadoPaises = _db.Paises.ToList();
+
             return View(listadoPaises);
         }
 
@@ -28,6 +29,7 @@ namespace PracticoDotNet.Controllers
             {
                 _db.Paises.Add(p);
                 _db.SaveChanges();
+                TempData["exito"] = "El pais se creo exitosamente";
                 return RedirectToAction("Index");
             }
             return View();
@@ -58,6 +60,7 @@ namespace PracticoDotNet.Controllers
             if (ModelState.IsValid) {
                 _db.Paises.Update(p);
                 _db.SaveChanges();
+                TempData["exito"] = "El pais se modifico exitosamente";
                 return RedirectToAction("Index");
             }
             return View();
@@ -92,6 +95,7 @@ namespace PracticoDotNet.Controllers
             {
                 _db.Paises.Remove(p);
                 _db.SaveChanges();
+                TempData["exito"] = "El pais se elimino exitosamente";
                 return RedirectToAction("Index");
             }
             return View();

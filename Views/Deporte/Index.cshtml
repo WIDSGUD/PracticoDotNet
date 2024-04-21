@@ -1,0 +1,42 @@
+﻿@model IEnumerable<PracticoDotNet.Models.Deporte>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Deportes</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+
+<form asp-controller="Deporte" asp-action="Index">
+    <p>
+        <input type="text" name="buscar" class="form-text"/>
+        <input type="submit" value="Buscar" class="btn-sm btn-dark"/>
+    </p>
+</form>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nombre)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var obj in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelobj => obj.Nombre)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@obj.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@obj.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@obj.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

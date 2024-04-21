@@ -12,16 +12,24 @@ namespace PracticoDotNet.Data
 
         public DbSet<Pais> Paises { get; set; }
 
+        public DbSet<PracticoDotNet.Models.Deporte> Deporte { get; set; }
+
+        public DbSet<PracticoDotNet.Models.Confederacion> Confederacion { get; set; }
+
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Pais>().HasData(
-                new Pais { id = 1, nombre = "Uruguay" },
-                new Pais { id = 2, nombre = "Argentina" },
-                new Pais { id = 3, nombre = "Brasil" },
-                new Pais { id = 4, nombre = "Venezuela" },
-                new Pais { id = 5, nombre = "Paraguay" }
+                new Pais { id = 1, nombre = "Uruguay" }
                 );
-        }
+
+            modelBuilder.Entity<Deporte>().HasData(
+                new Deporte { Id = 1, Nombre = "Futbol" }
+                );
+
+            modelBuilder.Entity<Confederacion>().HasData(
+               new Confederacion { Id = 1, Nombre = "AUF" }
+               );
+        }       
     }
 }
